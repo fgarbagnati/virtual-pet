@@ -25,10 +25,13 @@ var GameState = {
 		this.pet.input.enableDrag();
 
 		this.apple = this.game.add.sprite(72, 570, 'apple');
+		this.apple.anchor.setTo(0.5);
 		this.candy = this.game.add.sprite(144, 570, 'candy');
+		this.candy.anchor.setTo(0.5);
 		this.toy = this.game.add.sprite(216, 570, 'toy');
+		this.toy.anchor.setTo(0.5);
 		this.rotate = this.game.add.sprite(288, 570, 'rotate');
-
+		this.rotate.anchor.setTo(0.5);
 	}
 };
 
