@@ -68,6 +68,16 @@ var GameState = {
 			this.uiBlocked = true;
 			this.clearSelection();
 			sprite.alpha = 0.4;
+
+			var petRotation = this.game.add.tween(this.pet);
+			petRotation.to({angle: '+720'}, 1000);
+			petRotation.onComplete.add(function() {
+				this.uiBlocked = false;
+				sprite.alpha = 1;
+				this.pet.customParams.fun += 10;
+				console.log(this.pet.customParams.fun);
+			}, this)
+			petRotation.start();
 		}
 	},
 	clearSelection: function () {
