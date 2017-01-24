@@ -46,12 +46,35 @@ var GameState = {
 		this.rotate.anchor.setTo(0.5);
 		this.rotate.inputEnabled = true; 
 		this.rotate.events.onInputDown.add(this.rotatePet, this);
+
+		this.buttons = [this.apple, this.candy, this.toy, this.rotate];
+
+		this.selectedItem = null;
+		this.uiBlocked = false;
+
+
 	},
-	pickItem: function(sprite, event) {
-		console.log('pick item');
+	pickItem: function(sprite, event) { 
+		if(!this.uiBlocked) {
+			console.log('pick item');
+			this.clearSelection();
+			sprite.alpha = 0.4;
+			this.selectedItem = sprite;
+		}
 	},
 	rotatePet: function(sprite, event) {
-		console.log('rotating pet');
+		if(!this.uiBlocked) {
+			console.log('rotating pet');
+			this.uiBlocked = true;
+			this.clearSelection();
+			sprite.alpha = 0.4;
+		}
+	},
+	clearSelection: function () {
+		this.buttons.forEach(function(element, index) {
+			element.alpha = 1;
+		});
+		this.selectedItem = null;
 	}
 };
 
