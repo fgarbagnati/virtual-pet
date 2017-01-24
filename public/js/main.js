@@ -89,13 +89,15 @@ var GameState = {
 		this.selectedItem = null;
 	},
 	placeItem: function(sprite, event) {
-		var x = event.position.x;
-		var y = event.position.y;
+		console.log(this.uiBlocked);
+		if(this.selectedItem && !this.uiBlocked) {
+			var x = event.position.x;
+			var y = event.position.y;
 
-		var newItem = this.game.add.sprite(x, y, this.selectedItem.key);
-		newItem.anchor.setTo(0.5);
-		newItem.customParams = this.selectedItem.customParams;
-
+			var newItem = this.game.add.sprite(x, y, this.selectedItem.key);
+			newItem.anchor.setTo(0.5);
+			newItem.customParams = this.selectedItem.customParams;
+		}
 	}
 };
 
