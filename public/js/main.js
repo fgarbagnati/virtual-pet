@@ -100,7 +100,9 @@ var GameState = {
 
 			var petMovement = this.game.add.tween(this.pet);
 			petMovement.to({x: x, y: y}, 700);
-			petMovement.onComplete.add(function(){}, this);
+			petMovement.onComplete.add(function(){
+				this.uiBlocked = false;
+			}, this);
 			petMovement.start();
 		}
 	}
