@@ -103,6 +103,14 @@ var GameState = {
 			petMovement.onComplete.add(function(){
 				newItem.destroy();
 				this.uiBlocked = false;
+
+				var stat;
+				for(stat in newItem.customParams) {
+					if(newItem.customParams.hasOwnProperty(stat)) {
+						console.log(stat);
+						this.pet.customParams[stat] += newItem.customParams[stat];
+					}
+				}
 			}, this);
 			petMovement.start();
 		}
