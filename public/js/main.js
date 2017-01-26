@@ -58,7 +58,6 @@ var GameState = {
 	},
 	pickItem: function(sprite, event) { 
 		if(!this.uiBlocked) {
-			console.log('pick item');
 			this.clearSelection();
 			sprite.alpha = 0.4;
 			this.selectedItem = sprite;
@@ -89,7 +88,6 @@ var GameState = {
 		this.selectedItem = null;
 	},
 	placeItem: function(sprite, event) {
-		console.log(this.uiBlocked);
 		if(this.selectedItem && !this.uiBlocked) {
 			var x = event.position.x;
 			var y = event.position.y;
@@ -97,6 +95,13 @@ var GameState = {
 			var newItem = this.game.add.sprite(x, y, this.selectedItem.key);
 			newItem.anchor.setTo(0.5);
 			newItem.customParams = this.selectedItem.customParams;
+
+			this.uiBlocked = true;
+
+			var petMovement = this.game.add.tween(this.pet);
+			petMovement.to({x: x, y: y}, 700);
+			petMovement.onComplete.add(function(){}, this);
+			petMovement.start();
 		}
 	}
 };
