@@ -131,10 +131,20 @@ var GameState = {
 		this.funText.text = this.pet.customParams.fun;
 	},
 	reduceProperties: function() {
-		console.log('reducing');
 		this.pet.customParams.health -= 10;
 		this.pet.customParams.fun -= 15;
 		this.refreshStats();
+	},
+	update: function() {
+		if(this.pet.customParams.health <= 0 || this.pet.customParams.fun <= 0) {
+			this.pet.frame = 4;
+			this.uiBlocked = true;
+
+			this.game.time.events.add(200, this.gameOver, this);
+		}
+	},
+	gameOver: function() {
+		this.game.state.restart();
 	}
 };
 
