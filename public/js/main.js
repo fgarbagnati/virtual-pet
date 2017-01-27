@@ -55,6 +55,14 @@ var GameState = {
 		this.selectedItem = null;
 		this.uiBlocked = false;
 
+		var style = { font: '20px Arial', fill: '#fff'};
+		this.game.add.text(10, 20, 'Health:', style);
+		this.game.add.text(140, 20, 'Fun:', style);
+
+		this.healthText = this.game.add.text(80, 20, '', style);
+		this.funText = this.game.add.text(185, 20, '', style);
+
+		this.refreshStats();
 
 	},
 	pickItem: function(sprite, event) { 
@@ -109,13 +117,17 @@ var GameState = {
 				var stat;
 				for(stat in newItem.customParams) {
 					if(newItem.customParams.hasOwnProperty(stat)) {
-						console.log(stat);
 						this.pet.customParams[stat] += newItem.customParams[stat];
 					}
 				}
+				this.refreshStats();
 			}, this);
 			petMovement.start();
 		}
+	},
+	refreshStats: function() {
+		this.healthText.text = this.pet.customParams.health;
+		this.funText.text = this.pet.customParams.fun;
 	}
 };
 
