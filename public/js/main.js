@@ -85,7 +85,7 @@ var GameState = {
 				this.uiBlocked = false;
 				sprite.alpha = 1;
 				this.pet.customParams.fun += 10;
-				console.log(this.pet.customParams.fun);
+				this.refreshStats();
 			}, this)
 			petRotation.start();
 		}
