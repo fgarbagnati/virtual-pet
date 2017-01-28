@@ -14,5 +14,8 @@ var PreloadState = {
 		this.load.image('toy', 'assets/images/rubber_duck.png');
 		this.load.image('arrow', 'assets/images/arrow.png');
 		this.load.spritesheet('pet', 'assets/images/pet.png', 97, 83, 5, 1, 1);
+	},
+	create: function() {
+		this.state.start('HomeState');
 	}
 };
