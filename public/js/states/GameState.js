@@ -127,6 +127,6 @@ var GameState = {
 		}
 	},
 	gameOver: function() {
-		this.game.state.restart();
+		this.state.start('HomeState', true, false, 'GAME OVER!');
 	}
 };
