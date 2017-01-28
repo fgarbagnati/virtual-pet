@@ -75,7 +75,6 @@ var GameState = {
 	},
 	rotatePet: function(sprite, event) {
 		if(!this.uiBlocked) {
-			console.log('rotating pet');
 			this.uiBlocked = true;
 			this.clearSelection();
 			sprite.alpha = 0.4;
