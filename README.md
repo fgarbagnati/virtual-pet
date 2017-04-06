@@ -1,5 +1,5 @@
 # virtual-pet
-Simple virtual pet game. [Play it here](https://infinite-plateau-38416.herokuapp.com/)
+Simple virtual pet game. [Play it here](https://nameless-headland-67770.herokuapp.com/virtual-pet/)
 
 Keep your virtual pet alive!
 
